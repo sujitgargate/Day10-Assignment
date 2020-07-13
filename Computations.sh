@@ -84,3 +84,28 @@ else
 fi
 
 ## End of Flip Coin Combination ##
+
+## This is Singlet Combination flipcoin ##
+
+#!/bin/bash -x
+declare -A flipCoin
+H=1
+T=1
+counter=0
+
+while [ $counter -le 150 ]
+do
+        randomGenerator=$((RANDOM%2))
+        if [ $randomGenerator -eq 0 ]
+        then
+                flipCoin["Heads"]=$(($H))
+                ((H++))
+                ((counter++))
+        else
+                flipCoin["Tails"]=$(($T))
+                ((T++))
+                ((counter++))
+        fi
+done
+
+## This is end of Singlet Combination flipcoin ##
