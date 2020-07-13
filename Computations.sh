@@ -109,3 +109,50 @@ do
 done
 
 ## This is end of Singlet Combination flipcoin ##
+
+## This is Doublet Combination flipcoin ##
+
+#!/bin/bash -x
+declare -A flipCoin
+counter=0
+
+while [ $counter -le 150 ]
+do
+        randomGenerator=$((RANDOM%4))
+        if [ $randomGenerator -eq 0 ]
+        then
+                flipCoin["HH"]=$(($HH))
+                ((HH++))
+                ((counter++))
+        elif [ $randomGenerator -eq 1 ]
+        then
+                flipCoin["HT"]=$(($HT))
+                ((HT++))
+                ((counter++))
+
+        elif [ $randomGenerator -eq 2 ]
+        then
+                flipCoin["TH"]=$(($TH))
+                ((TH++))
+                ((counter++))
+
+        else
+                flipCoin["TT"]=$(($TT))
+                ((TT++))
+                ((counter++))
+        fi
+done
+HH=${flipCoin["HH"]}
+HT=${flipCoin["HT"]}
+TH=${flipCoin["TH"]}
+TT=${flipCoin["TT"]}
+printf "%s" " HH is "  "$(($HH*100/150))% "
+printf "%s" " HT is "  "$(($HT*100/150))% "
+printf "%s" " TH is "  "$(($TH*100/150))% "
+printf "%s" " TT is "  "$(($TT*100/150))% "
+
+sorted=$(printf ${flipCoin[@]} | sort | tail -1)
+echo $sorted
+
+
+## This is end of Doublet Combination flipcoin ##
