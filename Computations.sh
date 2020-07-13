@@ -71,3 +71,16 @@ echo "Head "$headCounter
 
 
 ## End of Flip Coin Simulation ##
+
+## Flip Coin Combination ##
+
+#!/bin/bash -x
+randomGenerator=$((RANDOM%2))
+if [ $randomGenerator -eq 0 ]
+then
+        echo "Heads"
+else
+        echo "Tails"
+fi
+
+## End of Flip Coin Combination ##
