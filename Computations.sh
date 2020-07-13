@@ -35,3 +35,39 @@ sorted=$(printf '%s\n' "${Array[@]}" | sort )
 echo "Array in sorted order "$sorted
 
 ## End Of Arithmatic Operations ##
+
+## Flip Coin Simulation ##
+
+#!/bin/bash -x
+
+headCounter=0
+tailCoumter=0
+while [ 1 -eq 1 ]
+do
+        randomGenerator=$((RANDOM%2))
+        if [ $randomGenerator -eq 0 ]
+        then
+                #echo "Heads"
+                ((headCounter++))
+                if [[ $headCounter -eq 10 ]]
+                then
+                        echo "Head came" $headCounter "Times"
+                        #exit
+                        break;
+                fi
+        else
+                #echo "Tails"
+                ((tailCounter++))
+                if [[ $tailCounter -eq 10 ]]
+                then
+                        echo "Tail came" $tailCounter "Times"
+                        #exit
+                        break;
+                fi
+        fi
+done
+echo "Tail "$tailCounter
+echo "Head "$headCounter
+
+
+## End of Flip Coin Simulation ##
