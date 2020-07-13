@@ -156,3 +156,86 @@ echo $sorted
 
 
 ## This is end of Doublet Combination flipcoin ##
+
+## This is Tripplet Combination flipcoin ##
+
+#!/bin/bash -x
+declare -A flipCoin
+headCounter=1
+tailCounter=1
+counter=0
+
+while [ $counter -le 150 ]
+do
+        randomGenerator=$((RANDOM%8))
+        if [ $randomGenerator -eq 0 ]
+        then
+                flipCoin["HHH"]=$(($HHH))
+                ((HHH++))
+                ((counter++))
+        elif [ $randomGenerator -eq 1 ]
+        then
+                flipCoin["HHT"]=$(($HHT))
+                ((HHT++))
+                ((counter++))
+
+        elif [ $randomGenerator -eq 2 ]
+        then
+                flipCoin["HTH"]=$(($HTH))
+                ((HTH++))
+                ((counter++))
+        elif [ $randomGenerator -eq 3 ]
+        then
+                flipCoin["HTT"]=$(($HTT))
+                ((HTT++))
+                ((counter++))
+        elif [ $randomGenerator -eq 4 ]
+        then
+                flipCoin["TTT"]=$(($TTT))
+                ((TTT++))
+                ((counter++))
+
+        elif [ $randomGenerator -eq 5 ]
+        then
+                flipCoin["TTH"]=$(($TTH))
+                ((TTH++))
+                ((counter++))
+        elif [ $randomGenerator -eq 6 ]
+        then
+                flipCoin["THT"]=$(($THT))
+                ((THT++))
+                ((counter++))
+
+        else
+                flipCoin["THH"]=$(($THH))
+                ((THH++))
+                ((counter++))
+        fi
+done
+
+HHH=${flipCoin["HHH"]}
+HHT=${flipCoin["HHT"]}
+HTH=${flipCoin["HTH"]}
+HTT=${flipCoin["HTT"]}
+TTT=${flipCoin["TTT"]}
+TTH=${flipCoin["TTH"]}
+THT=${flipCoin["THT"]}
+THH=${flipCoin["THH"]}
+
+printf "%s" "HHH is "  "$(($HHH*100/150))% "
+printf "%s" "HHT is "  "$(($HHT*100/150))% "
+printf "%s" "HTH is "  "$(($TTH*100/150))% "
+printf "%s" " HTT is "  "$(($HTT*100/150))% "
+
+printf "%s" "TTT is "  "$(($TTT*100/150))% "
+printf "%s" "TTH is "  "$(($TTH*100/150))% "
+printf "%s" "THT is "  "$(($THT*100/150))% "
+printf "%s" "THH is "  "$(($THH*100/150))% "
+
+
+sorted=$(printf ${flipCoin[@]} | sort | tail -1)
+echo $sorted
+
+
+
+## This is end of Tripplet Combination flipcoin ##
